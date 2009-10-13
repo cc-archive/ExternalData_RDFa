@@ -2,6 +2,7 @@
 /**
  * Utility functions for External Data
  */
+include_once('includes/arc/ARC2.php');
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is a MediaWiki extension; it is not a valid entry point' );
@@ -327,3 +328,11 @@ class EDUtils {
 		}
 	}
 }
+	static function getRDFaData( $resource_url ) {
+		global $rdfatriples;		
+		$rdfaparser = ARC2::getSemHTMLParser();
+		$rdfaparser->parse($resource_url);
+		$rdfaparser->extractRDF('rdfa');
+		$rdfatriples = $rdfaparser->getTriples();
+
+		}
