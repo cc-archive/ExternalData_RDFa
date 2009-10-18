@@ -328,11 +328,3 @@ class EDUtils {
 		}
 	}
 }
-	static function getRDFaData( $resource_url ) {
-		global $rdfatriples;		
-		$rdfaparser = ARC2::getSemHTMLParser();
-		$rdfaparser->parse($resource_url);
-		$rdfaparser->extractRDF('rdfa');
-		$rdfatriples = $rdfaparser->getTriples();
-
-		}

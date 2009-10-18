@@ -247,18 +247,4 @@ class EDParserFunctions {
 		}
 		return $text;
 	}
-
-	/**
-	 * Render the #get_rdfa parser function
-	 */
-	static function doGetRDFa( &$parser ) {
-	global $edgValues;
-	if ( ! array_key_exists( $local_var, $edgValues ) )
-		return '';
-	elseif ( is_array( $edgValues[$local_var] ) )
-		return $edgValues[$local_var][0];
-	else
-		return $edgValues[$local_var];
-	}
-
 }
